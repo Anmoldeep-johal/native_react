@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "expo-router";
-import { View, Text, StyleSheet, Image } from "react-native";
-import logoimg from "../assets/images/logoimg.png"; // ✅ FIXED
+import { View, Text, StyleSheet, Image,Pressable } from "react-native";
+import logoimg from "../assets/images/logoimg.png";
 
 const App = () => {
   return (
@@ -11,8 +11,11 @@ const App = () => {
       <Text style={styles.h1}>Game Atlas</Text>
       <Text style={styles.h2}>An encyclopedia for games</Text>
 
-      <Link href="/explore" style={styles.link}>
-        Explore Here
+      <Link href="/explore" style={styles.button} asChild>
+      <Pressable style={styles.button}>
+        <Text style={styles.buttonText}>Explore Here</Text>
+      </Pressable>
+       
       </Link>
     </View>
   );
@@ -42,15 +45,19 @@ const styles = StyleSheet.create({
     color: "white",
     margin: 5,
   },
-  link: {
+  button:{
+    height:60,
+    borderRadius: 50,
+    backgroundColor:'green',
+    padding: 6,
+  },
+  buttonText: {
     color: "white",
-    fontSize: 24,
+    fontSize: 16,
     fontWeight: "bold",
-    marginTop: 20,
-    backgroundColor: "green",
-    paddingVertical: 6,
-    paddingHorizontal: 12,
-    borderRadius: 5,
+    margin:10,
+   
     textAlign: "center",
   },
+
 });
